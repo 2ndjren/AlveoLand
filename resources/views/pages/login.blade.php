@@ -12,14 +12,16 @@
 </head>
 
 <body>
-    <div class="row my-auto h-100 pt-5">
+    <div class="row my-pt-5" style="background: url('/static/test.jpeg'); height:100vh">
         <div class="col-lg-7 col-sm-0"></div>
         <div class="col-lg-4 col-sm-0  pt-5 px-sm-5 px-lg-0">
             <div class="card">
                 <div class="card-body">
-                    <form id="login-account" enctype="multipart/form-data">
+                    <form id="login-account" class="px-5" enctype="multipart/form-data">
                         @csrf
-                        <img src="/static/alveo.svg" height="40" alt="">
+                        <br>
+                        <h3 class="text-primary text-center">Alveo Land Corporation</h3>
+                        <br>
                         <h6 class="text-primary">Greetings!</h6>
                         <p>Welcome to Alveo, please login your account to get in touch. Thank you</p>
                         <h5 class="text-primary">

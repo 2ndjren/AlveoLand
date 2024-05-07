@@ -485,7 +485,28 @@
                 <h4><span><i class="fa-solid fa-user"></i></span> Submitted Properties</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body overflow-auto" id="client-details">
+            <div class="modal-body overflow-auto p-5">
+                <div class=""id="client-details"></div>
+                <div class="row"id="client-images"></div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+<div class="modal fade" id="image-view" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content rounded-0">
+
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body overflow-auto p-5">
+                <div class="row"id="view-image"></div>
 
             </div>
         </div>

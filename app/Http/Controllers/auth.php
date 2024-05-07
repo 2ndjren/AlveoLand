@@ -23,10 +23,7 @@ class auth extends Controller
         $username = $request->username;
         $password = $request->password;
         if ($username == 'admin' && $password == '1234') {
-            $data = [
-                'firstname' => 'Admin'
-            ];
-            Session::put('admin', $data);
+            session()->put('admin', 'Admin');
             return response()->json(['status' => 200]);
         }
     }

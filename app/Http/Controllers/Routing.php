@@ -17,7 +17,7 @@ class Routing extends Controller
 
     public function Login()
     {
-        if (Session::has('admin')) {
+        if (session('admin')) {
             return redirect()->back();
         } else {
             return view('pages.login');
@@ -45,23 +45,43 @@ class Routing extends Controller
     }
     public function Admin()
     {
-        return view('admin.index');
+        if (session('admin')) {
+            return view('admin.index');
+        } else {
+            return redirect('/login');
+        }
     }
     public function Appointment()
     {
-        return view('admin.appointment');
+        if (session('admin')) {
+            return view('admin.appointment');
+        } else {
+            return redirect('/login');
+        }
     }
     public function Inquiry_Admin()
     {
-        return view('admin.inquiry');
+        if (session('admin')) {
+            return view('admin.inquiry');
+        } else {
+            return redirect('/login');
+        }
     }
     public function Submitted_Properties()
     {
-        return view('admin.submitted');
+        if (session('admin')) {
+            return view('admin.submitted');
+        } else {
+            return redirect('/login');
+        }
     }
     public function Property()
     {
-        return view('admin.property');
+        if (session('admin')) {
+            return view('admin.property');
+        } else {
+            return redirect('/login');
+        }
     }
     public function Prospects()
     {
@@ -75,7 +95,11 @@ class Routing extends Controller
     }
     public function Projects()
     {
-        return view('admin.projects');
+        if (session('admin')) {
+            return view('admin.projects');
+        } else {
+            return redirect('/login');
+        }
     }
     public function ViewUnits()
     {

@@ -81,6 +81,7 @@ Route::get('/admin/property/index', [Routing::class, 'Property_Main']);
 Route::get('/admin/property/gallery', [Routing::class, 'Gallery']);
 Route::get('/admin/clients', [Client_Controller::class, 'GetAllRequest']);
 Route::get('/admin/clients/{id}', [Client_Controller::class, 'GetPropertyDetails']);
+Route::get('/admin/view-image/{id}', [Client_Controller::class, 'View_Image_Submitted']);
 
 
 

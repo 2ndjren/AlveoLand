@@ -25,14 +25,13 @@ class Client_Controller extends Controller
             'project' => 'required',
             'unit_no' => 'required',
             'purpose' => 'required',
-            'images' => 'required',
+            // 'submitted_images' => 'required',
         ];
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
             return response()->json(['status' => 400, 'errors' => $validator->errors()]);
         }
 
-        DB::beginTransaction();
         $client = new client();
         $client->cfname = $request->first_name;
         $client->clname = $request->last_name;
@@ -51,7 +50,6 @@ class Client_Controller extends Controller
         $client->cidback = $imgnameb;
         $saveC_client = $client->save();
         if ($saveC_client) {
-            DB::commit();
             $find_client = client::where('cfname', $request->first_name)->where('clname', $request->last_name)->where('cemail', $request->email)->first();
             $property = new submitted_property();
             $property->client_id = $find_client->id;
@@ -61,14 +59,13 @@ class Client_Controller extends Controller
             $property->cstatus = "Pending";
             $saveC_property = $property->save();
             if ($saveC_property) {
-                DB::commit();
                 $submitted_property = submitted_property::where('client_id', $find_client->id)->first();
-                $file = $request->file('images');
-                $images = new submitted_property_images();
-                foreach ($file as $image) {
+                $files = $request->file('submitted_images');
+                foreach ($files as $file) {
+                    $images = new submitted_property_images();
                     $ran = mt_rand(111111111, 999999999);
-                    $imgname = $ran . '.' . $image->extension();
-                    $image->move('submitted_properties/', $imgname);
+                    $imgname = $ran . '.' . $file->extension();
+                    $file->move('submitted_properties/', $imgname);
                     $images->submitted_property_id = $submitted_property->id;
                     $images->image_name = $imgname;
                     $images_saved = $images->save();
@@ -94,6 +91,11 @@ class Client_Controller extends Controller
     {
         $result = client::join('submitted_property', 'client.id', '=', 'submitted_property.client_id')->where('client.id', $id)->select('client.id as client_id', 'client.*', 'submitted_property.*', 'submitted_property.id as submitted_id', 'submitted_property.*')->first();
         $result['images'] = submitted_property_images::where('submitted_property_id', $result->submitted_id)->get();
+        return response()->json($result);
+    }
+    public function View_Image_Submitted($id)
+    {
+        $result = submitted_property_images::where('id', $id)->first();
         return response()->json($result);
     }
 }

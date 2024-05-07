@@ -23,17 +23,17 @@ function Submit_Property() {
                     );
                 } else {
                     $("#client-form span").remove();
-                    $.each(response.errors, function (errors, error) {
+                    $.each(res.errors, function (errors, error) {
                         $(
                             '<span class="text-danger">' + error + "<span>"
                         ).insertAfter($("input[name=" + errors + "]"));
                     });
-                    var message = "<p>" + response.errors + "</p>";
+                    var message = "<p>" + res.errors + "</p>";
                 }
             },
             error: function (xhr, status, error) {
                 $("#submit-btn").prop("disabled", false);
-                console.error(xhr.responseText);
+                console.error(xhr.resText);
             },
         });
     });

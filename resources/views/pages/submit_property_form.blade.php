@@ -89,7 +89,7 @@
                                         </div>
                                         <div class="d-flex">
                                             <div class="form-floating mb-3 me-3 w-100">
-                                                <input type="file" accept="image/*" multiple name="images[]"
+                                                <input type="file" accept="image/*" multiple name="submitted_images[]"
                                                     class="form-control" id="floatingInput" placeholder="name@example.com">
                                                 <label for="floatingInput my-3">Upload Property Images.</label>
                                             </div>
