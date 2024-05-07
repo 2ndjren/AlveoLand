@@ -21,8 +21,7 @@
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <script src="https://kit.fontawesome.com/a051b84b57.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-    </script>
+
 
 
 
@@ -147,6 +146,7 @@
     </div>
     <div class="bg-light text-end px-3">
         <small>Here is where you can reach us!</small>
+        <div id="google_translate_element"></div>
     </div>
     <div class="top-navbar pt-1 lh-2 text-center">
         <div class="d-flex justify-content-center align-items-center">
@@ -325,7 +325,16 @@
         <script src="{{ asset('js/user/logo.js') }}"></script>
         <script src="{{ asset('js/user/search.js') }}"></script>
         <script src="{{ asset('js/user/calculator.js') }}"></script>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en'
+                }, 'google_translate_element');
+            }
+        </script>
 
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+        </script>
 
         <script>
             $(document).ready(function() {
