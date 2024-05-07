@@ -19,6 +19,7 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (res) {
+                console.log(res);
                 if (res.length > 0) {
                     $(".property-count").text(res.length);
                     $.each(res, function (unitIndex, unitData) {

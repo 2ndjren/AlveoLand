@@ -48,7 +48,7 @@ function Missions() {
             if (response.status == 200) {
                 $.each(response.missions, function (index, data) {
                     var col =
-                        "<div div  class='col-lg-4 col-sm-12 mt-2 px-3' > <div class='border-top fw-lighter  border-2 py-3'> <span class='fs-5'>" +
+                        "<div div  class='col-lg-4 col-sm-12 mt-2 px-3' > <div class='border-top lh-sm  border-2 py-3'> <span class='fs-5'>" +
                         data.description +
                         " </span></div></div>";
 
@@ -75,7 +75,7 @@ function Vision() {
                 $("#vision-content").text(response.vision.description);
                 $("#company-vision").removeClass("d-none");
             } else if (response.status == 400) {
-                $("#company-vision").addClass("d-none");
+                $("#company-vision").addClass("d-none ");
             }
         },
         error: function (xhr, status, error) {

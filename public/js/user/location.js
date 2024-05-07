@@ -29,19 +29,16 @@ function Active_Location() {
                 var project = ` <div class="col-12">
                     <div class="py-3 ">
                         <div class="row">
-                            <div class="col-2 text-end">
+                            <div class="col-lg-12 text-center">
                                 <img src="/project/snapshots/${
                                     proData.project_logo
-                                }" height="100" class="text-end" alt="">
+                                }" height="100" class="text-center" alt="">
+                                  <h4 class=" text-center"><span class="me-3 text-primary"></span> <span class="text-success">${
+                                      proData.project_name
+                                  }</span></h4>
 
                             </div>
-                            <div class="col-6 text-start">
-                                <h2 class=" text-start"><span class="me-3 text-primary"><i
-                                            class="fa-solid fa-building"></i></span> <span class="text-success">${
-                                                proData.project_name
-                                            }</span></h2>
-                                <h3>Properties</h3>
-                            </div>
+
                         </div>
                     </div>
                     <div class="row" id="project-${proData.project_name.replace(
@@ -60,7 +57,7 @@ function Active_Location() {
                               " per month"
                             : money.format(indexVal.project_unit_price);
                     if (proData.project_name == indexVal.project_name) {
-                        var details = ` <div class="col-4 p-3 text-center">
+                        var details = ` <div class="col-lg-4 col-sm-12 p-3 text-center">
                             <div class=" bg-white shadow-sm"
                                 style='cursor:pointer;background: linear-gradient(to top, rgba(7, 148, 236, 0.7), rgba(255, 255, 255, 0.001)), url("/project/units/snapshots/${indexVal.project_unit_banner}");
                 height:50vh; background-size:cover; background-position:center background-repeat:no-repeat'>

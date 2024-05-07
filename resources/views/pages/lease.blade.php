@@ -3,6 +3,8 @@
 @section('lease')
     <div class="px-3 bg-light" style="height: 100vh" id="for-sale-container px-3 ">
         <div class=" pt-3 display-result">
+            <h4 class="text-primary text-center">For Lease Properties</h4>
+
             <div class="d-flex justify-content-center">
                 <div class="text-center">
                     <span class=" text-dark ">Filter Property</span>

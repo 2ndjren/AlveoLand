@@ -3,10 +3,14 @@
 @section('sale')
     <div class="px-3 bg-light" style="height: 100vh" id="for-sale-container px-3 ">
         <div class=" pt-3 display-result">
+            <h4 class="text-primary text-center">For Sale Properties</h4>
+
             <div class="d-flex justify-content-center">
                 <div class="text-center">
                     <span class=" text-dark ">Filter Property</span>
                     <form id="sale-search-filter" enctype="multipart/form-data" class="d-flex align-content-center ">
+                        <select name="city" class="location-select">
+                        </select>
                         <select name="category">
                             <option value="">Select Catgory</option>
                             <option value="RFO">RFO</option>
@@ -23,8 +27,7 @@
                             <option value="H&L">H&L</option>
                             <option value="Office">Office</option>
                         </select>
-                        <select name="city" class="location-select">
-                        </select>
+
                         <button type="submit" class="btn btn-success rounded-0 ">Filter Now</button>
                         <button type="button" class="btn btn-primary rounded-0 reset-form-btn">Reset</button>
 

@@ -149,7 +149,8 @@ function Get_Unit_Data() {
                         <div class="mt-3">
                             <p  data-id="${
                                 res.unit.id
-                            }" class="text-light px-3 py-1 btn btn-success schedule-btn ">Schedule a Visit</p>
+                            }" class="text-light px-3 py-1 btn btn-success schedule-btn ">Schedule a Visit</p></br>
+                            <a href="tel:09108707822" class="btn btn-primary">Call us now</a>
                         </div>
                     </div>
                 </div>

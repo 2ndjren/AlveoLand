@@ -41,7 +41,7 @@
     <div id="company-objective" class="bg-light p-lg-5 px-sm-3  py-sm-5 d-none ">
         <div class="container p-lg-5 p-sm-3">
             <div class="px-5">
-                <span id="company-objective-content" class="fs-3 lh-base">
+                <span id="company-objective-content" class="fs-3 lh-sm">
                 </span>
             </div>
         </div>
@@ -50,8 +50,8 @@
     <div id="company-do" class=" p-lg-5 px-sm-3  py-sm-5 d-none" style="background-color: rgb(8, 132, 204)">
         <div class="container p-lg-5 p-sm-3">
             <div class="px-5">
-                <span class="fs-3 text-white">WHAT WE DO</span><br>
-                <span id="company-do-content" class="fs-4 fw-light text-white lh-1">
+                <span class="fs-3 text-white">WHAT WE DO</span><br><br>
+                <span id="company-do-content" class="fs-4  text-white lh-sm ">
 
                 </span>
             </div>
@@ -62,7 +62,7 @@
         <div id="company-missions" class="container p-lg-5 p-sm-3">
             <div class="px-5">
                 <div class="py-lg-5 ">
-                    <span class="fs-3 fw-semibold  text-secondary">MISSION</span>
+                    <span class="fs-3 fw-lighter  text-secondary">MISSION</span>
                 </div>
                 <div id="company-mission-data" class="row">
                 </div>
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="awards-content-data" class="row pt-5">
+                    <div id="awards-content-data" class="row pt-5 lh-sm">
 
                     </div>
                 </div>
@@ -123,29 +123,8 @@
 
 
 
-    {{-- <div id="company-project-portfolio" class=" bg-secondary p-lg-5 p-sm-3">
-        <div class="container p-lg-5 p-sm-3">
-            <div class="px-5">
-                <div class="py-lg-5 ">
-                    <span class="fs-3 fw-semibold text-light  ">Project Portfolio</span>
-                </div>
-                <div class="row">
 
-                    <div class="col-12">
-                        <div class="row">
-                            <div id="projects-button" class="d-flex overflow-auto scrollbar-container py-2">
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div id="projects-content-data" class="row pt-5">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
+    
 
     <script src="{{ asset('/js/user/about.js') }}"></script>
     <script>

@@ -4,7 +4,7 @@
 
     <div class="px-3 bg-light  overflow-y-auto" style="height: 100vh" id="for-sale-container px-3 ">
         <br>
-        <h3 class="text-primary">Our Projects</h3>
+        <h4 class="text-primary text-center">Our Projects</h4>
         <div id="display-project-properties" class="row">
 
         </div>

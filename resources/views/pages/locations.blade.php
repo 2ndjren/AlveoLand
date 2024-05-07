@@ -2,10 +2,10 @@
 @section('title', 'Alveo | Locations')
 @section('locations')
     <div class="w-100" style="height: 100vh">
-        <h1 class="text-center text-primary mt-3 p-4 bg-light"><span class="text-danger"><i
+        <h3 class="text-center text-primary mt-3 p-4 bg-light"><span class="text-danger"><i
                     class="fa-solid fa-location-dot"></i></span>
             <span id="location-active-data"></span> <span>Area</span>
-        </h1>
+        </h3>
         <div class=" overflow-y-auto bg-light mt-3">
             <div class="row" id="property-container-location">
 

@@ -150,30 +150,24 @@
     </div>
     <div class="top-navbar pt-1 lh-2 text-center">
         <div class="d-flex justify-content-center align-items-center">
-            <a href="#" class="me-2 nav-link  ">
-                <abbr title="Viber">
-                    <h5><i class="me-2 fa-brands fa-viber"></i></h5>
-                </abbr>
+            <a href="https://account.viber.com/en/login?destination=purchase" target="_blank" class="me-2 nav-link  "
+                target="_blank">
+                <h5><i class="me-2 fa-brands fa-viber"></i></h5>
             </a>
-            <a href="" class="me-2 nav-link ">
-                <abbr title="Whatsapp">
-                    <h5><i class="fa-brands fa-whatsapp"></i></h5>
-                </abbr>
+            <a href="https://web.whatsapp.com/" target="_blank" class="me-2 nav-link " title="WhatsApp">
+                <h5><i class="fa-brands fa-whatsapp"></i></h5>
+
             </a>
-            <a href="" class="me-2 nav-link ">
-                <abbr title="Telegram">
-                    <h5><i class="me-2 fa-brands fa-telegram"></i></h5>
-                </abbr>
+            <a href="https://web.telegram.org/a/#6381425825" target="_blank" class="me-2 nav-link  "
+                title="Telegram">
+                <h5><i class="me-2 fa-brands fa-telegram"></i></h5>
             </a>
-            <a href="tel:09108707822" class="me-2 nav-link ">
-                <abbr title="Call Us">
-                    <h5><i class="me-2 fa-solid fa-phone"></i></h5>
-                </abbr>
+            <a href="tel:09108707822" class="me-2 nav-link " target="_blank" title="Phone">
+                <h5><i class="me-2 fa-solid fa-phone"></i></h5>
             </a>
-            <a href="" class="me-2 nav-link ">
-                <abbr title="Messenger">
-                    <h5><i class="me-2 fa-brands fa-facebook-messenger"></i></h5>
-                </abbr>
+            <a href="https://web.facebook.com/messages/t/100003131920372" target="_blank" class="me-2 nav-link"
+                title="Messenger">
+                <h5><i class="me-2 fa-brands fa-facebook-messenger"></i></h5>
             </a>
 
         </div>
