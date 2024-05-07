@@ -54,7 +54,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="#" class="brand-link text-center pb-5 pt-5">
-                <img src="/static/alveo.svg" height="40" alt="">
+                <img src="/static/ALVEO.svg" height="40" alt="">
 
             </a>
 
