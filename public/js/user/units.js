@@ -97,7 +97,7 @@ function Get_Unit_Data() {
                 <div class="row">
                     <div class="col-lg-8 col-12">
                         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                            <div id="unit-images" class="carousel-inner">
+                            <div id="unit-images" class="carousel-inner" >
                             
                             </div>
                             <button class="carousel-control-prev" type="button"
@@ -166,7 +166,7 @@ function Get_Unit_Data() {
                     } else {
                         active = "";
                     }
-                    var img = `<div class="img-car d-lg-none carousel-item  ${active}">
+                    var img = `<div class="img-car d-lg-none carousel-item  ${active}" >
       <img src="/project/units/snapshots/${imgdata.project_unit_snapshot_name}" class=" w-100" >
     </div>
     <div class="img-car carousel-item  ${active}">

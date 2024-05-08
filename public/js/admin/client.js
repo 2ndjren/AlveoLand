@@ -66,7 +66,7 @@ $(document).ready(function () {
                 $("#client-details").append(details);
                 $("#client-images").empty();
                 $.each(res.images, function (index, data) {
-                    var images = ` <div class="col-lg-4 col-sm-6  mb-2">
+                    var images = ` <div class="col-lg-4 col-6  mb-2">
                    <img class="view-image-btn w-100" data-id="${data.id}" src="/submitted_properties/${data.image_name}" height="150" alt="">
                    <a download="${data.image_name}" href="/submitted_properties/${data.image_name}" title="${data.image_name}">Download
 </a>

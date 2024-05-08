@@ -27,6 +27,20 @@
         .loan-cal {
             width: 100%;
         }
+
+
+
+        @media (max-width: 500px) {
+            .carousel-inner {
+                height: 200px;
+            }
+
+            .carousel-inner img {
+                height: auto;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
     </style>
 
 
