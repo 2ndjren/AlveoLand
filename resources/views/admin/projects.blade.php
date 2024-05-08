@@ -17,12 +17,12 @@
 
             </ul>
         </div>
+        <div class="table-property-container bg-light shadow-sm p-3 overflow-x-auto">
+
+        </div>
 
     </div>
 
-    <div class="table-property-container bg-light shadow-sm p-3 overflow-x-auto">
-
-    </div>
 
     @include('admin.modals.modals')
     <script src="{{ asset('js/admin/projects.js') }}"></script>

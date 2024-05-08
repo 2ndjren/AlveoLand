@@ -23,7 +23,15 @@
     <script src="https://kit.fontawesome.com/a051b84b57.js" crossorigin="anonymous"></script>
 
 
-
+    <style>
+        $grid-breakpoints: (
+            xs: 0,
+            sm: 400px,
+            md: 768px,
+            lg: 992px,
+            xl: 1200px
+        );
+    </style>
 
 
 </head>
@@ -175,230 +183,182 @@
         </div>
     </div>
 
-    <div id="navbar" class="navbar  w-100 ">
+    <div id="navbar" class="navbar navbar-expand-lg navbar-dark bg-transparent w-100">
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand d-none d-lg-block" href="{{ url('/') }}"><img src="/static/ALVEO.svg"
+                    alt="ALVEO" height="30"></a>
+            <a class="navbar-brand d-lg-none text-center " href="{{ url('/') }}"><img src="/static/ALVEO.svg"
+                    alt="ALVEO" height="30"></a>
 
-        <button type="button" id="openNavigationMenu" class="btn d-sm-block d-lg-none text-white"><i
-                class="fa-solid fa-bars"></i></button>
-        <button type="button" id="closeNavigationMenu" class="btn d-sm-none d-lg-none text-white"><i
-                class="fa-solid fa-xmark"></i></button>
-        <div id="mobileSizeNavigation" class="w-100 d-sm-none d-lg-none align-items-center justify-content-center">
-            <div class="d-flex justify-content-center">
-                <div class="text-center">
-                    <div class="mb-3">
-                        <a href="{{ url('/') }}" class="text-decoration-none"><img src="/static/ALVEO.svg"
-                                alt="" height="30"></a>
-                    </div>
-                    <div>
-                        <a href="{{ '/about' }}" class="btn text-light">ABOUT US</a>
-                    </div>
-                    <div>
-                        <a href="{{ '/our-properties/sale' }}" class="btn text-light">FOR SALE</a>
-                    </div>
-                    <div>
-                        <a href="{{ '/our-properties/lease' }}" class="btn text-light">FOR LEASE</a>
-                    </div>
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                    <div class="dropdown">
-                        <button class="btn text-light btn text-light rounded-0 dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">LOCATIONS</button>
-                        <ul class="dropdown-menu rounded-0 locations-city-list"></ul>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn text-light rounded-0 dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">CONTACT US</button>
-                        <ul class="dropdown-menu rounded-0">
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::url() == url('/about') ? 'active' : '' }}"
+                            href="{{ '/about' }}">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ '/projects' }}"
+                            class="nav-link {{ Request::url() == url('/projects') ? 'active' : '' }}">PROJECTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::url() == url('/our-properties/sale') ? 'active' : '' }}"
+                            href="{{ '/our-properties/sale' }}">FOR SALE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::url() == url('/our-properties/lease') ? 'active' : '' }}"
+                            href="{{ '/our-properties/lease' }}">FOR LEASE</a>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            LOCATIONS
+                        </a>
+                        <ul class="dropdown-menu locations-city-list" aria-labelledby="navbarDropdown">
 
-                            <li><a class="dropdown-item" href="{{ url('/inquiry') }}"><span><i
-                                            class="me-2 fa-solid fa-message"></i></span><span>Send us a
-                                        message</span></a></li>
                         </ul>
-                    </div>
-                    <div>
-                        <a href="{{ '/send-property' }}" class="btn text-light">SUBMIT PROPERTY</a>
-                    </div>
-                    <div>
-                        <a href="{{ '/schedule-viewing' }}" class="btn text-light">SCHEDULE A VIEWING</a>
-                    </div>
-                    <div>
-                        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
-                            aria-controls="staticBackdrop" class="btn text-light">LOAN CALCULATOR</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="d-lg-none d-sm-none text-center">
-            <a href="{{ url('/') }}" class="text-decoration-none"><img src="/static/ALVEO.svg" alt=""
-                    height="20"></a>
-        </div>
-
-        <div class="w-100 d-sm-none d-lg-flex align-items-center justify-content-center">
-            <div>
-                <a href="{{ url('/') }}" class="text-decoration-none text-light me-5 fs-3 fw-bold"><img
-                        src="/static/ALVEO.svg" alt="" height="20"></a>
-            </div>
-            <div>
-                <a href="{{ '/about' }}"
-                    class="btn text-light {{ Request::url() == url('/about') ? 'active' : '' }}">ABOUT US</a>
-            </div>
-            <div>
-                <a href="{{ '/projects' }}"
-                    class="btn text-light {{ Request::url() == url('/projects') ? 'active' : '' }}">PROJECTS</a>
-            </div>
-            <div>
-                <a href="{{ '/our-properties/sale' }}"
-                    class="btn text-light {{ Request::url() == url('/our-properties/sale') ? 'active' : '' }}">FOR
-                    SALE</a>
-            </div>
-            <div>
-                <a href="{{ '/our-properties/lease' }}"
-                    class="btn text-light {{ Request::url() == url('/our-properties/lease') ? 'active' : '' }}">FOR
-                    LEASE</a>
-            </div>
-            <div class="dropdown">
-                <button
-                    class="btn text-light rounded-0 dropdown-toggle {{ Request::url() == url('/property-locations') ? 'active' : '' }}"
-                    type="button" data-bs-toggle="dropdown" aria-expanded="false">LOCATIONS</button>
-                <ul class="dropdown-menu rounded-0 locations-city-list"></ul>
-            </div>
-            <div class="dropdown">
-                <button
-                    class="btn text-light rounded-0 dropdown-toggle {{ Request::url() == url('/send-property') ? 'active' : '' }}  {{ Request::url() == url('/inquiry') ? 'active' : '' }} "
-                    type="button" data-bs-toggle="dropdown" aria-expanded="false">OTHERS </button>
-                <ul class="dropdown-menu rounded-0">
-                    <li><a class="dropdown-item" href="{{ url('/inquiry') }}"><span class=""><i
-                                    class="me-2 fa-solid fa-message"></i></span><span>Send us a message</span></a></li>
-                    <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas"
-                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"
-                            class="btn text-light"><span class="me-2"><i
-                                    class="fa-solid fa-calculator"></i></span><span>Loan
-                                Calculator</span></a></li>
-
-                    <li><a class="dropdown-item" href="{{ '/send-property' }}""><span class="me-2"><i
-                                    class="fa-solid fa-paper-plane"></i></span><span>Submit Property</span></a></li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ '/schedule-viewing' }}">SCHEDULE A VIEWING</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">LOAN CALCULATOR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ '/send-property' }}">SUBMIT PROPERTY</a>
+                    </li>
+                    <!-- Other nav items -->
+                    <!-- Add other navbar items here -->
                 </ul>
             </div>
-            <div>
+        </div>
+    </div>
 
 
+
+    <div class="section" id="section">
+        @yield('index')
+        @yield('about')
+        @yield('lease')
+        @yield('sale')
+        @yield('locations')
+        @yield('viwe_units_data')
+        @yield('user_projects')
+        @yield('project_units')
+        @yield('prospects')
+        @yield('our_properties')
+        @yield('send_inquiry')
+        @yield('property_view')
+        @yield('submit_property_form')
+        @yield('schedule_viewing')
+    </div>
+
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="toasMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto" id="toast-header"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <span id="toast-content"></span>
             </div>
         </div>
+    </div>
 
+    @include('pages.chat')
+    <script src="{{ asset('js/user/index.js') }}"></script>
+    <script src="{{ asset('js/user/logo.js') }}"></script>
+    <script src="{{ asset('js/user/search.js') }}"></script>
+    <script src="{{ asset('js/user/calculator.js') }}"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+    </script>
 
-        <div class="section" id="section">
-            @yield('index')
-            @yield('about')
-            @yield('lease')
-            @yield('sale')
-            @yield('locations')
-            @yield('viwe_units_data')
-            @yield('user_projects')
-            @yield('project_units')
-            @yield('prospects')
-            @yield('our_properties')
-            @yield('send_inquiry')
-            @yield('property_view')
-            @yield('submit_property_form')
-            @yield('schedule_viewing')
-        </div>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
 
-        <div class="toast-container position-fixed top-0 end-0 p-3">
-            <div id="toasMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                    <strong class="me-auto" id="toast-header"></strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
-                    <span id="toast-content"></span>
-                </div>
-            </div>
-        </div>
-
-        @include('pages.chat')
-        <script src="{{ asset('js/user/index.js') }}"></script>
-        <script src="{{ asset('js/user/logo.js') }}"></script>
-        <script src="{{ asset('js/user/search.js') }}"></script>
-        <script src="{{ asset('js/user/calculator.js') }}"></script>
-        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'en'
-                }, 'google_translate_element');
-            }
-        </script>
-
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-        </script>
-
-        <script>
-            $(document).ready(function() {
-                // Loader()
-                Calculator()
+    <script>
+        $(document).ready(function() {
+            // Loader()
+            Calculator()
 
 
 
 
-                $('#openNavigationMenu').click(function(e) {
-                    e.preventDefault();
-                    $('#logomobile').addClass('d-none')
-                    $('#closeNavigationMenu').removeClass('d-sm-none')
-                    $('#openNavigationMenu').removeClass('d-sm-block')
-                    $('#openNavigationMenu').addClass('d-sm-none')
-                    $('#mobileSizeNavigation').removeClass('d-sm-none')
-                    // $('#openNavigationMenu').addClass('d-none')
-
-                });
-                $('#closeNavigationMenu').click(function(e) {
-                    e.preventDefault();
-                    $('#logomobile').removeClass('d-none')
-                    $('#closeNavigationMenu').addClass('d-sm-none')
-                    $('#openNavigationMenu').addClass('d-sm-block')
-                    $('#openNavigationMenu').removeClass('d-sm-none')
-                    $('#mobileSizeNavigation').addClass('d-sm-none')
-
-                    // $('#openNavigationMenu').addClass('d-none')
-
-                });
-                tagline()
-                LocationsList()
-                EventsLocation();
-
-
-
-
-
-                $('.subscribe-btn').click(function(e) {
-                    e.preventDefault();
-
-                    $('#subscribe-modal').modal('show')
-
-                });
-                $('#subscriber-form').submit(function(e) {
-                    e.preventDefault();
-                    var formdata = new FormData($(this)[0])
-                    $.ajax({
-                        type: "POST",
-                        url: "/newsletter/subscribe",
-                        data: formdata,
-                        contentType: false,
-                        processData: false,
-                        success: function(response) {
-                            if (response.status == 200) {
-                                $('#subscriber-form')[0].reset()
-                            } else {
-
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            console.error(xhr.responseTxt)
-                        }
-                    });
-
-                });
-
+            $('#openNavigationMenu').click(function(e) {
+                e.preventDefault();
+                $('#logomobile').addClass('d-none')
+                $('#closeNavigationMenu').removeClass('d-sm-none')
+                $('#openNavigationMenu').removeClass('d-sm-block')
+                $('#openNavigationMenu').addClass('d-sm-none')
+                $('#mobileSizeNavigation').removeClass('d-sm-none')
+                // $('#openNavigationMenu').addClass('d-none')
 
             });
-        </script>
+            $('#closeNavigationMenu').click(function(e) {
+                e.preventDefault();
+                $('#logomobile').removeClass('d-none')
+                $('#closeNavigationMenu').addClass('d-sm-none')
+                $('#openNavigationMenu').addClass('d-sm-block')
+                $('#openNavigationMenu').removeClass('d-sm-none')
+                $('#mobileSizeNavigation').addClass('d-sm-none')
+
+                // $('#openNavigationMenu').addClass('d-none')
+
+            });
+            tagline()
+            LocationsList()
+            EventsLocation();
+
+
+
+
+
+            $('.subscribe-btn').click(function(e) {
+                e.preventDefault();
+
+                $('#subscribe-modal').modal('show')
+
+            });
+            $('#subscriber-form').submit(function(e) {
+                e.preventDefault();
+                var formdata = new FormData($(this)[0])
+                $.ajax({
+                    type: "POST",
+                    url: "/newsletter/subscribe",
+                    data: formdata,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        if (response.status == 200) {
+                            $('#subscriber-form')[0].reset()
+                        } else {
+
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseTxt)
+                    }
+                });
+
+            });
+
+
+        });
+    </script>
 
 
 </body>

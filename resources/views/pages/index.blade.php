@@ -76,7 +76,7 @@
                     </div>
                     {{-- <form id="index_search_properties_available"> --}}
 
-                    <div class="d-lg-block d-sm-none">
+                    <div class="d-lg-block d-none">
                         <p>
                             Alveo Land Corp. is the Philippines’ leading innovative developer of vibrant communities and
                             groundbreaking living solutions.
@@ -87,7 +87,7 @@
 
                     </div>
                 </div>
-                <div class="col-lg-8 col-sm-12 d-lg-block d-sm-none">
+                <div class="col-lg-8 col-sm-12 d-lg-block d-none ">
                     <div class="container my-3 mt-5" id="featureContainer">
                         <div class="row mx-auto my-auto justify-content-center">
                             <div id="featureCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -148,7 +148,7 @@
                 <br>
                 <a href="/send-property" class="btn btn-success">Submit Property</a>
             </div>
-            <div class="d-lg-flex d-sm-none justify-content-start">
+            <div class="d-lg-flex d-none justify-content-start">
                 <div class="">
                     <a href="" class="text-dark btn">Privacy</a>
                 </div>

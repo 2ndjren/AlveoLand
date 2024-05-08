@@ -18,7 +18,7 @@ function Display_Project() {
             console.log(res);
             if (res.status == 200) {
                 $.each(res.projects, function (proIndex, proData) {
-                    var card = `    <div class=" col-3 p-3">
+                    var card = `    <div class=" col-12 col-lg-4 p-3">
                 <div class=" rounded-2"
                     style='cursor:pointer;background: linear-gradient(to top, rgba(7, 148, 236, 0.7), rgba(255, 255, 255, 0.001)), url("/project/snapshots/${proData.project_banner}");
                                                                 height:50vh; background-size:cover; background-repeat:no-repeat'>
@@ -32,9 +32,7 @@ function Display_Project() {
                     <br>
                     <br>
                     <br>
-                    <br>
-                    <br>
-                    <br>
+
                     <h4 style="color:rgb(25, 69, 107)">
                         <span class="bg-light rounded-end fw-semibold p-2"> <span class="me-2"><i
                                     class="fa-solid fa-building"></i></span>
