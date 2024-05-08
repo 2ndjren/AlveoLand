@@ -166,9 +166,13 @@ function Get_Unit_Data() {
                     } else {
                         active = "";
                     }
-                    var img = `<div class="img-car carousel-item  ${active}">
+                    var img = `<div class="img-car d-lg-none carousel-item  ${active}">
       <img src="/project/units/snapshots/${imgdata.project_unit_snapshot_name}" class=" w-100" >
-    </div>`;
+    </div>
+    <div class="img-car carousel-item  ${active}">
+      <img src="/project/units/snapshots/${imgdata.project_unit_snapshot_name}" class=" w-100" >
+    </div>
+    `;
                     $("#unit-images").append(img);
                 });
             }
