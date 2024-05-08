@@ -8,7 +8,7 @@
             <br>
             <div class="row ps-5 index-size">
                 <div class="col-lg-4 px-lg-3 col-sm-12">
-                    <div class="d-flex d-lg-block justify-content-center">
+                    <div class="d-sm-flex d-lg-block justify-content-center">
                         <img src="https://www.alveoland.com.ph/static/alveo-land-home.svg" height="30" alt="">
                     </div>
                     <div class="lh-1 d-none d-lg-block">
@@ -34,27 +34,38 @@
                                     <div data-id="{{ $project->id }}"
                                         class="display-units carousel-item {{ $active }}"
                                         style='cursor:pointer;background: linear-gradient(to top, rgba(7, 148, 236, 0.9), rgba(255, 255, 255, 0.001)), url("{{ asset('project/snapshots') }}/{{ $project->project_banner }}");
-                                                                height:25rem; background-size:cover;'>
+                                                                height:100%; width:100%; background-size:cover; background-position:center;'>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <div class="d-lg-block d-none">
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                        </div>
                                         <br>
                                         <br>
                                         <br>
                                         <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <h1><span class="bg-light rounded-end  px-5 py-2"><i
+                                        <h1 class="d-lg-block d-none"><span class="bg-light rounded-end   px-5 py-2"><i
                                                     class="fa-solid fa-location-dot text-danger"></i>
                                                 {{ $project->city }}</span></h1>
-                                        <div class="featured-property-name  text-center text-light py-2 h5">
+                                        <div
+                                            class="featured-property-name d-lg-block d-none  text-center text-light py-2 h5">
+                                            {{ $project->project_name }}
+                                        </div>
+                                        <h5 class="d-block d-lg-none text-center "><span
+                                                class="bg-light rounded-2   px-5 py-2"><i
+                                                    class="fa-solid fa-location-dot text-danger"></i>
+                                                {{ $project->city }}</span></h5>
+                                        <div
+                                            class="featured-property-name d-block d-lg-none  text-center text-light py-2 h5">
                                             {{ $project->project_name }}
                                         </div>
 
