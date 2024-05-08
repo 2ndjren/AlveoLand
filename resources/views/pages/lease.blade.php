@@ -8,7 +8,7 @@
             <div class="d-flex justify-content-center">
                 <div class="text-center">
                     <span class=" text-dark ">Filter Property</span>
-                    <form id="lease-search-filter" enctype="multipart/form-data" class="d-flex align-content-center ">
+                    <form id="lease-search-filter" enctype="multipart/form-data" class="d-lg-flex align-content-center ">
                         <select name="city" class="location-select">
                         </select>
                         <select name="category">
@@ -28,9 +28,15 @@
                             <option value="Office">Office</option>
                         </select>
 
-                        <button type="submit" class="btn btn-success rounded-0 ">Filter Now</button>
-                        <button type="button" class="btn btn-primary rounded-0 reset-form-btn">Reset</button>
 
+                        <div class="d-lg-block d-none ms-1">
+                            <button type="submit" class="btn btn-success rounded-0 ">Filter Now</button>
+                            <button type="button" class="btn btn-primary rounded-0 reset-form-btn">Reset</button>
+                        </div>
+                        <div class="d-block d-lg-none mt-2">
+                            <button type="submit" class="btn btn-success rounded-0 ">Filter Now</button>
+                            <button type="button" class="btn btn-primary rounded-0 reset-form-btn">Reset</button>
+                        </div>
                     </form>
                 </div>
             </div>

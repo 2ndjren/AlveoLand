@@ -38,33 +38,33 @@
             /* Hover state color */
         }
     </style>
-    <div id="company-objective" class="bg-light p-lg-5 px-sm-3  py-sm-5 d-none ">
-        <div class="container p-lg-5 p-sm-3">
+    <div id="company-objective" class="bg-light p-lg-5 px-3  py-5 d-none ">
+        <div class="container p-lg-5 p-3">
             <div class="px-5">
-                <span id="company-objective-content" class="fs-3 lh-sm">
+                <span id="company-objective-content" class=" lh-sm fs-6">
                 </span>
             </div>
         </div>
     </div>
 
-    <div id="company-do" class=" p-lg-5 px-sm-3  py-sm-5 d-none" style="background-color: rgb(8, 132, 204)">
+    <div id="company-do" class=" p-lg-5 px-3  py-5 d-none" style="background-color: rgb(8, 132, 204)">
         <div class="container p-lg-5 p-sm-3">
             <div class="px-5">
-                <span class="fs-3 text-white">WHAT WE DO</span><br><br>
-                <span id="company-do-content" class="fs-4  text-white lh-sm ">
+                <span class="fs-5 text-white">WHAT WE DO</span><br><br>
+                <span id="company-do-content" class=" text-white lh-sm  fs-6">
 
                 </span>
             </div>
         </div>
     </div>
 
-    <div class=" bg-light p-lg-5 p-sm-3">
-        <div id="company-missions" class="container p-lg-5 p-sm-3">
+    <div class=" bg-light p-lg-5 p-3">
+        <div id="company-missions" class="container p-lg-5 p-3">
             <div class="px-5">
                 <div class="py-lg-5 ">
-                    <span class="fs-3 fw-lighter  text-secondary">MISSION</span>
+                    <span class="fs-4 fw-lighter  text-secondary">MISSION</span>
                 </div>
-                <div id="company-mission-data" class="row">
+                <div id="company-mission-data" class="row fs-6">
                 </div>
 
             </div>
@@ -75,7 +75,7 @@
         <div id="company-vision" class="container p-lg-5 p-sm-3">
             <div class="px-5">
                 <div class="py-lg-5 ">
-                    <span class="fs-3 fw-semibold text-secondary">VISION</span>
+                    <span class="fs-4 fw-semibold text-secondary">VISION</span>
                 </div>
                 <div class="row">
                     <div class="col-4 px-3">
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <span id="vision-content" class="fs-5 fw-lighter">
+                        <span id="vision-content" class=" fs-6">
 
                         </span>
                     </div>
@@ -94,11 +94,11 @@
         </div>
 
     </div>
-    <div id="company-awards" class=" bg-success p-lg-5 p-sm-3">
-        <div class="container p-lg-5 p-sm-3">
+    <div id="company-awards" class=" bg-success p-lg-5 p-3">
+        <div class="container p-lg-5 p-3">
             <div class="px-5">
                 <div class="py-lg-5 ">
-                    <span class="fs-3 fw-semibold text-light  ">AWARDS</span>
+                    <span class="fs-4 fw-semibold text-light  ">AWARDS</span>
                 </div>
                 <div class="row">
 
@@ -124,7 +124,7 @@
 
 
 
-    
+
 
     <script src="{{ asset('/js/user/about.js') }}"></script>
     <script>

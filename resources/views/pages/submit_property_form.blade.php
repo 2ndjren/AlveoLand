@@ -5,20 +5,21 @@
 
         <div class="card">
             <div class="card-body">
-                <div class="container p-4">
+                <div class="container pt-4">
                     <form id="client-form" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-12">
                                 <div class="card mb-3">
                                     <div class="card-body">
+                                        <p class="fs-5 text-center fw-semibold mt-2">Submit you property details here.</p>
 
                                         <h6 class="text-primary"> <strong> NOTE: </strong>To finalize the submission of your
                                             property, please
                                             complete the form by
                                             providing the necessary information.</h6>
                                         <p>Client Contact Informarion/Verification</p>
-                                        <div class="d-flex">
+                                        <div class="d-lg-flex">
                                             <div class="form-floating mb-3 me-3 w-100">
                                                 <input type="text" name="first_name" class="form-control"
                                                     id="floatingInput" placeholder="name@example.com">
@@ -30,7 +31,7 @@
                                                 <label for="floatingInput">Last Name</label>
                                             </div>
                                         </div>
-                                        <div class="d-flex">
+                                        <div class="d-lg-flex">
                                             <div class="form-floating mb-3 me-3 w-100">
                                                 <input type="text" name="contact" class="form-control" id="floatingInput"
                                                     placeholder="name@example.com">
@@ -42,7 +43,7 @@
                                                 <label for="floatingInput">Email</label>
                                             </div>
                                         </div>
-                                        <div class="d-flex">
+                                        <div class="d-lg-flex">
                                             <div class="form-floating mb-3 me-3 w-100">
                                                 <input type="file" accept="image/*" name="front_id" class="form-control"
                                                     id="floatingInput" placeholder="name@example.com">
@@ -66,7 +67,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <p>Property Information Form</p>
-                                        <div class="d-flex">
+                                        <div class="d-lg-flex">
                                             <div class="form-floating mb-3 me-3 w-100">
                                                 <input type="text" accept="image/*" name="project" class="form-control"
                                                     id="floatingInput" placeholder="name@example.com">
@@ -77,7 +78,7 @@
                                                     id="floatingInput" placeholder="name@example.com">
                                                 <label for="floatingInput my-3">Unit No.</label>
                                             </div>
-                                            <div class="form-floating w-100">
+                                            <div class="form-floating w-100 mb-3">
                                                 <select class="form-select" name="purpose" id="floatingSelect"
                                                     aria-label="Floating label select example">
                                                     <option value="">Choose</option>
@@ -87,7 +88,7 @@
                                                 <label for="floatingSelect">For Sale or Lease?</label>
                                             </div>
                                         </div>
-                                        <div class="d-flex">
+                                        <div class="d-lg-flex">
                                             <div class="form-floating mb-3 me-3 w-100">
                                                 <input type="file" accept="image/*" multiple name="submitted_images[]"
                                                     class="form-control" id="floatingInput" placeholder="name@example.com">

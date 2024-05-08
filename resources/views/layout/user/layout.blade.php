@@ -40,6 +40,21 @@
                 width: 100%;
                 object-fit: cover;
             }
+
+            #company-do-content {
+                font-size: 10px
+            }
+
+            #company-objective-content {
+                font-size: 10px
+            }
+
+            .awards-images {
+                height: auto;
+                width: 100%;
+                object-fit: cover;
+
+            }
         }
     </style>
 
