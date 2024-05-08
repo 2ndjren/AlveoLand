@@ -163,21 +163,21 @@
                 <div class="">
                     <a href="" class="text-dark btn">Privacy</a>
                 </div>
-                <div class="">
-                    <a href="" class="text-dark btn">Terms and Condition</a>
+                <div class="text-nowrap">
+                    <a href="" class="text-dark btn "><small>Terms and Condition</small></a>
                 </div>
-                <div class="">
+                <div class="text-nowrap">
                     <a href="" class="text-dark btn">Property Listing</a>
                 </div>
             </div>
-            <div class="d-flex d-lg-none justify-content-center">
+            <div class="d-flex d-lg-none mt-3 justify-content-center">
                 <div class="">
                     <a href="" class="text-dark btn">Privacy</a>
                 </div>
-                <div class="">
+                <div class="text-nowrap">
                     <a href="" class="text-dark btn">Terms and Condition</a>
                 </div>
-                <div class="">
+                <div class="text-nowra">
                     <a href="" class="text-dark btn">Property Listing</a>
                 </div>
             </div>
