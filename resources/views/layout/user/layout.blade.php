@@ -24,13 +24,9 @@
 
 
     <style>
-        $grid-breakpoints: (
-            xs: 0,
-            sm: 400px,
-            md: 768px,
-            lg: 992px,
-            xl: 1200px
-        );
+        .loan-cal {
+            width: 100%;
+        }
     </style>
 
 
@@ -46,7 +42,7 @@
 
 
 
-    <div class="offcanvas offcanvas-end w-25" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
+    <div class="offcanvas offcanvas-end loan-cal" data-bs-backdrop="static" tabindex="-1"
         aria-labelledby="staticBackdropLabel">
         <div class="offcanvas-header text-center">
 
@@ -230,8 +226,8 @@
                         <a class="nav-link" href="{{ url('/inquiry') }}">SEND US A MESSAGE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="offcanvas"
-                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">LOAN CALCULATOR</a>
+                        <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target=".loan-cal"
+                            aria-controls="staticBackdrop">LOAN CALCULATOR</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ '/send-property' }}">SUBMIT PROPERTY</a>
