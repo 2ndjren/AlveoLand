@@ -95,7 +95,7 @@ function Get_Unit_Data() {
             <div class="col-1"></div>
             <div class="col-10 bg-light p-3">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-lg-8 col-12">
                         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                             <div id="unit-images" class="carousel-inner">
                             
@@ -112,7 +112,7 @@ function Get_Unit_Data() {
                             </button>
                         </div>
                     </div>
-                    <div class="col-4 text-center">
+                    <div class="col-lg-4 col-12 text-center">
                         <h5 class="text-dark">${res.unit.project_name}</h5>
                         <img src="/project/units/snapshots/${
                             res.unit.project_unit_banner
