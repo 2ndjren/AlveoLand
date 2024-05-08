@@ -8,10 +8,10 @@
             <br>
             <div class="row ps-5 index-size">
                 <div class="col-lg-4 px-lg-3 col-sm-12">
-                    <div class="d-sm-flex d-lg-block justify-content-center">
+                    <div class="d-flex d-lg-block justify-content-center">
                         <img src="https://www.alveoland.com.ph/static/alveo-land-home.svg" height="30" alt="">
                     </div>
-                    <div class="lh-1 d-sm-none d-lg-block">
+                    <div class="lh-1 d-none d-lg-block">
                         <p style="font-size:4rem"><span style=" color:rgb(9, 161, 255)">Innovating </span><span>the way you
                                 live</span></p>
                     </div>
