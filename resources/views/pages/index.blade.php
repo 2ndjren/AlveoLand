@@ -177,7 +177,7 @@
                 <div class="text-nowrap">
                     <a href="" class="text-dark btn">Terms and Condition</a>
                 </div>
-                <div class="text-nowra">
+                <div class="text-nowrap">
                     <a href="" class="text-dark btn">Property Listing</a>
                 </div>
             </div>
