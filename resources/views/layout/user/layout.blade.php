@@ -227,7 +227,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ '/schedule-viewing' }}">SCHEDULE A VIEWING</a>
+                        <a class="nav-link" href="{{ url('/inquiry') }}">SEND US A MESSAGE</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-bs-toggle="offcanvas"
