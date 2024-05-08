@@ -299,7 +299,7 @@
 
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
     </script>
-
+    <script src="{{ asset('/js/user/units.js') }}"></script>
     <script>
         $(document).ready(function() {
             // Loader()

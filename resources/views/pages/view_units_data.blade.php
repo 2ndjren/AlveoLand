@@ -6,7 +6,7 @@
     </div>
 
     @include('layout.user.modal.visitation')
-    <script src="{{ asset('/js/user/units.js') }}"></script>
+
     <script>
         $(document).ready(function() {
             Get_Unit_Data()
