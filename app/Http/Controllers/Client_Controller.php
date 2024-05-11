@@ -31,7 +31,7 @@ class Client_Controller extends Controller
         if ($validator->fails()) {
             return response()->json(['status' => 400, 'errors' => $validator->errors()]);
         }
-
+        DB::beginTransaction();
         $client = new client();
         $client->cfname = $request->first_name;
         $client->clname = $request->last_name;
@@ -50,6 +50,7 @@ class Client_Controller extends Controller
         $client->cidback = $imgnameb;
         $saveC_client = $client->save();
         if ($saveC_client) {
+            DB::commit();
             $find_client = client::where('cfname', $request->first_name)->where('clname', $request->last_name)->where('cemail', $request->email)->first();
             $property = new submitted_property();
             $property->client_id = $find_client->id;
@@ -59,6 +60,7 @@ class Client_Controller extends Controller
             $property->cstatus = "Pending";
             $saveC_property = $property->save();
             if ($saveC_property) {
+                DB::commit();
                 $submitted_property = submitted_property::where('client_id', $find_client->id)->first();
                 $files = $request->file('submitted_images');
                 foreach ($files as $file) {
@@ -69,23 +71,38 @@ class Client_Controller extends Controller
                     $images->submitted_property_id = $submitted_property->id;
                     $images->image_name = $imgname;
                     $images_saved = $images->save();
+                    DB::commit();
                 }
                 if ($images_saved) {
                     return response()->json(['status' => 200, 'message' => 'Thank you for submitting your property! It will undergo review promptly.']);
+                    DB::commit();
                 } else {
                     return response()->json(['status' => 400, 'message' => 'Apologies for the loob. Please try again.']);
+                    DB::rollBack();
                 }
             } else {
                 return response()->json(['status' => 400, 'message' => 'Apologies for the loooo. Please try again.']);
+                DB::rollBack();
             }
         } else {
             return response()->json(['status' => 400, 'message' => 'Apologies for the inconvenience. Please try again.']);
+            DB::rollBack();
         }
     }
-    public function GetAllRequest()
+    public function PendingClients()
     {
-        $result = client::join('submitted_property', 'client.id', '=', 'submitted_property.client_id')->where('submitted_property.cstatus', 'Pending')->select('client.id as client_id', 'client.*', 'submitted_property.*', 'submitted_property.id as submitted_id', 'submitted_property.*')->get();
-        return response()->json(['properties' => $result]);
+        $result = client::join('submitted_property', 'client.id', '=', 'submitted_property.client_id')->where('submitted_property.cstatus', 'Pending')->select('client.id as client_id', 'client.*', 'submitted_property.*', 'submitted_property.id as submitted_id', 'submitted_property.*')->where('submitted_property.cstatus', 'Pending')->get();
+        return response()->json(['pending' => $result]);
+    }
+    public function ApprovedClients()
+    {
+        $result = client::join('submitted_property', 'client.id', '=', 'submitted_property.client_id')->where('submitted_property.cstatus', 'Pending')->select('client.id as client_id', 'client.*', 'submitted_property.*', 'submitted_property.id as submitted_id', 'submitted_property.*')->where('submitted_property.cstatus', 'Approved')->get();
+        return response()->json(['approved' => $result]);
+    }
+    public function DeclinedClients()
+    {
+        $result = client::join('submitted_property', 'client.id', '=', 'submitted_property.client_id')->where('submitted_property.cstatus', 'Pending')->select('client.id as client_id', 'client.*', 'submitted_property.*', 'submitted_property.id as submitted_id', 'submitted_property.*')->where('submitted_property.cstatus', 'Declined')->get();
+        return response()->json(['approved' => $result]);
     }
     public function GetPropertyDetails($id)
     {
@@ -97,5 +114,15 @@ class Client_Controller extends Controller
     {
         $result = submitted_property_images::where('id', $id)->first();
         return response()->json($result);
+    }
+    public function Approve_Property($id)
+    {
+        $result = submitted_property::where('id', $id)->update(['cstatus' => 'Approved']);
+        return response()->json(['message' => 'Successfully Approved']);
+    }
+    public function Decline_Property($id)
+    {
+        $result = submitted_property::where('id', $id)->update(['cstatus' => 'Decline']);
+        return response()->json(['message' => 'Successfully Declined']);
     }
 }

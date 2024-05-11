@@ -11,16 +11,16 @@ function Appointment_Event() {
 
                 console.log(res);
                 var buttons =
-                    res.status == "Approved"
+                    res.status == "Accepted"
                         ? `<button type="button" data-id="${res.id}" data-value='Done' class='process-btn btn btn-primary me-3'>Done</button>`
-                        : `<button type="button" data-id="${res.id}" data-value='Approve' class='process-btn btn btn-primary me-3'>Approve</button>
+                        : `<button type="button" data-id="${res.id}" data-value='Accepted' class='process-btn btn btn-primary me-3'>Accepted</button>
                     <button type="button" data-id="${res.id}" data-value='Decline' class='process-btn btn btn-danger'>Decline</button>`;
                 var details = `     <div class="col-12 text-center mb-3">
 <img src="/project/units/snapshots/${
                     res.unit.project_unit_banner
-                }" height="300">
+                }" height="150; width:100%; object-fit:cover">
                     </div>
-                <div class="col-6 lh-1 text-end">
+                <div class="col-3 lh-1 text-end">
                         <p class="fw-semibold text-primary">Project</p>
                         <p class="fw-semibold text-primary">Unit</p>
                         <p class="fw-semibold text-primary">Type</p>
@@ -28,6 +28,7 @@ function Appointment_Event() {
                         <p class="fw-semibold text-primary">Category Type</p>
                         <p class="fw-semibold text-primary">Requester</p>
                         <p class="fw-semibold text-primary">Contact</p>
+                        <p class="fw-semibold text-primary">Email</p>
                         <p class="fw-semibold text-primary">Date</p>
                         <p class="fw-semibold text-primary">Time</p>
                     </div>
@@ -53,6 +54,7 @@ function Appointment_Event() {
                            <p class="fw-semibold text-warning">: ${
                                res.contact
                            }</p>
+                           <p class="fw-semibold text-warning">:${res.email}</p>
                         <p class="fw-semibold text-warning">: ${convertDateToWords(
                             res.date
                         )}</p>
@@ -76,10 +78,10 @@ function Appointment_Event() {
         e.preventDefault();
         var id = $(this).data("id");
         var value = $(this).data("value");
-        if (value == "Approve") {
+        if (value == "Accepted") {
             $.ajax({
                 type: "GET",
-                url: `/approve-appointment/${id}`,
+                url: `/accepted-appointment/${id}`,
                 success: function (res) {
                     showtoastMessage("text-success", "Success", res.message);
                     DisplayOnGoingAppointments();
@@ -91,7 +93,7 @@ function Appointment_Event() {
         } else if (value == "Decline") {
             $.ajax({
                 type: "GET",
-                url: `/decline-appointment/${id}`,
+                url: `/declined-appointment/${id}`,
                 success: function (res) {
                     showtoastMessage("text-success", "Success", res.message);
                     DisplayOnGoingAppointments();
@@ -118,7 +120,7 @@ function Appointment_Event() {
 function DashApp() {
     $.ajax({
         type: "GET",
-        url: "/approved-appointments",
+        url: "/accepted-appointments",
         success: function (res) {
             res.approved.length > 0
                 ? $("#approved-request-count").text(res.approved.length)
@@ -166,7 +168,7 @@ function DisplayOnGoingAppointments() {
 
     let activated = new DataTable("#table-approved-appoinments-display", {
         ajax: {
-            url: "/approved-appointments",
+            url: "/accepted-appointments",
             type: "GET",
             dataSrc: "approved",
         },

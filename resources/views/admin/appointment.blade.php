@@ -9,7 +9,7 @@
                     <p class="text-primary">APPROVED REQUEST</p>
                     <div class="row mb-2">
                         <div class="col border-end border-5 border-primary text-center">
-                            <h4 class="text-primary"><i class="fa-solid fa-bell"></i></h4>
+                            <h4 class="text-primary"><i class="fa-solid fa-check"></i></h4>
                         </div>
                         <div class="col txt-center">
                             <h3 class="text-primary text-center"><span id="approved-request-count"></span></i></h3>
@@ -24,7 +24,7 @@
                     <p class="text-warning">PENDING REQUEST</p>
                     <div class="row mb-2">
                         <div class="col border-end border-5 border-primary text-center">
-                            <h4 class="text-primary"><i class="fa-solid fa-bell"></i></h4>
+                            <h4 class="text-primary"><i class="fa-solid fa-clock"></i></h4>
                         </div>
                         <div class="col txt-center">
                             <h3 class="text-primary text-center"><span id="pending-request-count"></span></i></h3>

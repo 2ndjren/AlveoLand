@@ -5,6 +5,18 @@ $(document).ready(function () {
         },
     });
     Submitted_Properties();
+    ApprovedProperties();
+    DeclinedProperties();
+    $("#properties-history-btn").click(function (e) {
+        e.preventDefault();
+        $("#layer1").addClass("d-none");
+        $("#layer2").removeClass("d-none");
+    });
+    $("#backlayer1").click(function (e) {
+        e.preventDefault();
+        $("#layer1").removeClass("d-none");
+        $("#layer2").addClass("d-none");
+    });
 
     $(document).on("click", ".view-image-btn", function (e) {
         e.preventDefault();
@@ -19,6 +31,39 @@ $(document).ready(function () {
                 $("#image-view").modal("show");
             },
         });
+    });
+    $(document).on("click", ".update-property-data-btn", function (e) {
+        e.preventDefault();
+        var id = $(this).data("id");
+        var val = $(this).data("value");
+        if (val == "Approve") {
+            $.ajax({
+                type: "GET",
+                url: `/approve-client-property/${id}`,
+                success: function (res) {
+                    showtoastMessage(
+                        "text-success",
+                        "Added Successful",
+                        res.message
+                    );
+                    Submitted_Properties();
+                },
+            });
+        } else if (val == "Decline") {
+            $.ajax({
+                type: "GET",
+                url: `/decline-client-property/${id}`,
+                success: function (res) {
+                    console.log(res);
+                    showtoastMessage(
+                        "text-success",
+                        "Added Successful",
+                        res.message
+                    );
+                    Submitted_Properties();
+                },
+            });
+        }
     });
 
     $(document).on("click", ".show-property-data-btn", function () {
@@ -53,7 +98,7 @@ $(document).ready(function () {
                     <div class="row">
                         <div class="col-6">
                             <div class="p">Project: ${res.cproject}</div>
-                            <div class="p">Unit No: ${res.cunit_no}</div>
+                            <div class="p">Code: ${res.cunit_no}</div>
                         </div>
                         <div class="col-6">
                             <div class="p">For: ${res.cfor}</div>
@@ -80,16 +125,20 @@ $(document).ready(function () {
     });
 });
 function Submitted_Properties() {
-    $(".table-approved-appoinments-display tbody").empty;
+    $(".table-pending-appoinments-display tbody").empty;
     var datatable = $(".table-pending-properties-container");
     datatable.empty();
     var table =
-        "<table id='table-approved-appoinments-display' class='table table-stripped border border-bordored w-100'>";
+        "<table id='table-pending-appoinments-display' class='table table-stripped border border-bordored w-100'>";
     table += " <thead>";
     table += " <tr>";
     table += `  <th class='text-start'><i class="fa-solid fa-calendar"></i></th>`;
     table += "  <th class='text-center'>Name</th>";
+    table += "  <th class='text-center'>Email</th>";
+    table += "  <th class='text-center'>Contact</th>";
     table += " <th class='text-center'>Details</th>";
+    table += " <th class='text-center'>Approve</th>";
+    table += " <th class='text-center'>Decline</th>";
     table += " </tr>";
     table += "   </thead >";
     table += "   <tbody class='text-nowrap text-center'>";
@@ -97,11 +146,11 @@ function Submitted_Properties() {
     table += " </table >";
     datatable.append(table);
 
-    let activated = new DataTable("#table-approved-appoinments-display", {
+    let activated = new DataTable("#table-pending-appoinments-display", {
         ajax: {
-            url: "/admin/clients",
+            url: "/admin/pending-clients",
             type: "GET",
-            dataSrc: "properties",
+            dataSrc: "pending",
         },
 
         columns: [
@@ -117,11 +166,174 @@ function Submitted_Properties() {
                     return `<p class="">${row.cfname} ${row.clname}</p>`;
                 },
             },
+            {
+                data: null,
+                render: function (data, type, row) {
+                    return `<p class='text-start'>${row.cemail}</p>`;
+                },
+            },
+            {
+                data: null,
+                render: function (data, type, row) {
+                    return `<p class='text-start'>${row.ccontact}</p>`;
+                },
+            },
 
             {
                 data: null,
                 render: function (data, type, row) {
                     var status = `<button data-id=${row.client_id} type="button" class="show-property-data-btn text-center btn btn-success">Show Details</button>`;
+                    return status;
+                },
+            },
+
+            {
+                data: null,
+                render: function (data, type, row) {
+                    var status = `<button data-value="Approve" data-id=${row.client_id} type="button" class="update-property-data-btn text-center btn btn-primary">Approve Property</button>`;
+                    return status;
+                },
+            },
+
+            {
+                data: null,
+                render: function (data, type, row) {
+                    var status = `<button data-value="Decline"  data-id=${row.client_id} type="button" class="update-property-data-btn text-center btn btn-warning">Decline Property</button>`;
+                    return status;
+                },
+            },
+        ],
+    });
+}
+function ApprovedProperties() {
+    $(".table-approved-properties-display tbody").empty;
+    var datatable = $(".table-approved-properties-container");
+    datatable.empty();
+    var table =
+        "<table id='table-approved-properties-display' class='table table-stripped border border-bordored w-100'>";
+    table += " <thead>";
+    table += " <tr>";
+    table += `  <th class='text-start'><i class="fa-solid fa-calendar"></i></th>`;
+    table += "  <th class='text-center'>Name</th>";
+    table += "  <th class='text-center'>Email</th>";
+    table += "  <th class='text-center'>Contact</th>";
+    table += " <th class='text-center'>Details</th>";
+    table += " <th class='text-center'>Delete</th>";
+    table += " </tr>";
+    table += "   </thead >";
+    table += "   <tbody class='text-nowrap text-center'>";
+    table += "</tbody > ";
+    table += " </table >";
+    datatable.append(table);
+
+    let activated = new DataTable("#table-approved-properties-display", {
+        ajax: {
+            url: "/admin/approved-clients",
+            type: "GET",
+            dataSrc: "approved",
+        },
+
+        columns: [
+            {
+                data: null,
+                render: function (data, type, row) {
+                    return `<p class='text-start'><i class="fa-solid fa-calendar"></i></p>`;
+                },
+            },
+            {
+                data: null,
+                render: function (data, type, row) {
+                    return `<p class="">${row.cfname} ${row.clname}</p>`;
+                },
+            },
+            {
+                data: null,
+                render: function (data, type, row) {
+                    return `<p class='text-start'>${row.cemail}</p>`;
+                },
+            },
+            {
+                data: null,
+                render: function (data, type, row) {
+                    return `<p class='text-start'>${row.ccontact}</p>`;
+                },
+            },
+
+            {
+                data: null,
+                render: function (data, type, row) {
+                    var status = `<button data-id=${row.client_id} type="button" class="show-property-data-btn text-center btn btn-success">Show Details</button>`;
+                    return status;
+                },
+            },
+
+            {
+                data: null,
+                render: function (data, type, row) {
+                    var status = `<button data-value="Approve" data-id=${row.client_id} type="button" class="update-property-data-btn text-center btn btn-primary">Approve Property</button>`;
+                    return status;
+                },
+            },
+        ],
+    });
+}
+function DeclinedProperties() {
+    $(".table-declined-properties-display tbody").empty;
+    var datatable = $(".table-declined-properties-container");
+    datatable.empty();
+    var table =
+        "<table id='table-declined-properties-display' class='table table-stripped border border-bordored w-100'>";
+    table += " <thead>";
+    table += " <tr>";
+    table += `  <th class='text-start'><i class="fa-solid fa-calendar"></i></th>`;
+    table += "  <th class='text-center'>Name</th>";
+    table += "  <th class='text-center'>Email</th>";
+    table += "  <th class='text-center'>Contact</th>";
+    table += " <th class='text-center'>Delete</th>";
+    table += " </tr>";
+    table += "   </thead >";
+    table += "   <tbody class='text-nowrap text-center'>";
+    table += "</tbody > ";
+    table += " </table >";
+    datatable.append(table);
+
+    let activated = new DataTable("#table-declined-properties-display", {
+        ajax: {
+            url: "/admin/declined-clients",
+            type: "GET",
+            dataSrc: "declined",
+        },
+
+        columns: [
+            {
+                data: null,
+                render: function (data, type, row) {
+                    return `<p class='text-start'><i class="fa-solid fa-calendar"></i></p>`;
+                },
+            },
+            {
+                data: null,
+                render: function (data, type, row) {
+                    return `<p class="">${row.cfname} ${row.clname}</p>`;
+                },
+            },
+            {
+                data: null,
+                render: function (data, type, row) {
+                    return `<p class='text-start'>${row.cemail}</p>`;
+                },
+            },
+            {
+                data: null,
+                render: function (data, type, row) {
+                    return `<p class='text-start'>${row.ccontact}</p>`;
+                },
+            },
+
+            {
+                data: null,
+                render: function (data, type, row) {
+                    var status = `<button data-value="Approve" data-id=${row.client_id} type="button" class="update-property-data-btn text-center btn btn-primary">Approve Property</button>`;
                     return status;
                 },
             },

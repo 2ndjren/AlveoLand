@@ -183,8 +183,8 @@
     </div>
     <div class="top-navbar pt-1 lh-2 text-center">
         <div class="d-flex justify-content-center align-items-center">
-            <a href="https://account.viber.com/en/login?destination=purchase" target="_blank" class="me-2 nav-link  "
-                target="_blank">
+            <a href="https://account.viber.com/en/login?destination=purchase" target="_blank"
+                class="me-2 nav-link fw-lighter  " target="_blank">
                 <h5><i class="me-2 fa-brands fa-viber"></i></h5>
             </a>
             <a href="https://web.whatsapp.com/" target="_blank" class="me-2 nav-link " title="WhatsApp">
@@ -211,10 +211,7 @@
     <div id="navbar" class="navbar navbar-expand-lg navbar-dark bg-transparent w-100">
         <div class="container-fluid">
             <!-- Navbar brand -->
-            <a class="navbar-brand d-none d-lg-block" href="{{ url('/') }}"><img src="/static/ALVEO.svg"
-                    alt="ALVEO" height="30"></a>
-            <a class="navbar-brand d-lg-none text-center " href="{{ url('/') }}"><img src="/static/ALVEO.svg"
-                    alt="ALVEO" height="30"></a>
+
 
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -223,28 +220,34 @@
             </button>
 
             <!-- Navbar links -->
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-center align-items-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::url() == url('/about') ? 'active' : '' }}"
+                        <a class="navbar-brand d-none d-lg-block" href="{{ url('/') }}"><img
+                                src="/static/ALVEO.svg" alt="ALVEO" height="25"></a>
+                        <a class="navbar-brand d-lg-none text-center " href="{{ url('/') }}"><img
+                                src="/static/ALVEO.svg" alt="ALVEO" height="25"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-lighter {{ Request::url() == url('/about') ? 'active' : '' }}"
                             href="{{ '/about' }}">ABOUT US</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ '/projects' }}"
-                            class="nav-link {{ Request::url() == url('/projects') ? 'active' : '' }}">PROJECTS</a>
+                            class="nav-link fw-lighter {{ Request::url() == url('/projects') ? 'active' : '' }}">PROJECTS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::url() == url('/our-properties/sale') ? 'active' : '' }}"
+                        <a class="nav-link fw-lighter {{ Request::url() == url('/our-properties/sale') ? 'active' : '' }}"
                             href="{{ '/our-properties/sale' }}">FOR SALE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::url() == url('/our-properties/lease') ? 'active' : '' }}"
+                        <a class="nav-link fw-lighter {{ Request::url() == url('/our-properties/lease') ? 'active' : '' }}"
                             href="{{ '/our-properties/lease' }}">FOR LEASE</a>
                     </li>
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link fw-lighter dropdown-toggle" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             LOCATIONS
                         </a>
                         <ul class="dropdown-menu locations-city-list" aria-labelledby="navbarDropdown">
@@ -252,14 +255,14 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/inquiry') }}">SEND US A MESSAGE</a>
+                        <a class="nav-link fw-lighter" href="{{ url('/inquiry') }}">SEND US A MESSAGE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target=".loan-cal"
-                            aria-controls="staticBackdrop">LOAN CALCULATOR</a>
+                        <a class="nav-link fw-lighter" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target=".loan-cal" aria-controls="staticBackdrop">LOAN CALCULATOR</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ '/send-property' }}">SUBMIT PROPERTY</a>
+                        <a class="nav-link fw-lighter" href="{{ '/send-property' }}">SUBMIT PROPERTY</a>
                     </li>
                     <!-- Other nav items -->
                     <!-- Add other navbar items here -->

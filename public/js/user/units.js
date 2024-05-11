@@ -45,6 +45,7 @@ function UnitsEvents() {
                 "X-CSRF-TOKEN": csrfToken,
             },
             success: function (res) {
+                console.log(res);
                 if (res.status == 200) {
                     showtoastMessage("text-success", "Success", res.message);
                     $("#schedule_form")[0].reset();
@@ -85,6 +86,10 @@ function Get_Unit_Data() {
         dataType: "json",
         success: function (res) {
             console.log(res);
+            var color =
+                res.unit.project_unit_status == "Available"
+                    ? "success"
+                    : "danger";
             if (res.status == 200) {
                 var data = ` <div class="  overflow-auto"
         style='cursor:pointer;background: linear-gradient(to bottom, rgba(7, 148, 236, 0.7), rgba(255, 255, 255, 0.001)), url("/project/snapshots/${
@@ -120,8 +125,9 @@ function Get_Unit_Data() {
                         <p class="text-center text-warning  mt-3 fw-bold">Information</p>
                         <div class="row text-center mt-3">
                             <div class="col-6 pe-3 border-end border-warning border-3 text-end lh-1">
-                                <p><strong class="text-dark"> Unit No.:</strong></p>
+                                <p><strong class="text-dark"> Code.:</strong></p>
                                 <p><strong class="text-dark"> Unit Type:</strong></p>
+                                <p><strong class="text-dark"> Category:</strong></p>
                                 <p><strong class="text-dark"> Unit Status:</strong></p>
                                 <p><strong class="text-dark"> Unit Price:</strong></p>
                                 <p><strong class="text-dark"> Unit Size:</strong></p>
@@ -135,8 +141,11 @@ function Get_Unit_Data() {
                                                 res.unit.project_unit_type
                                             }</span></strong>
                                 </p>
-                                <p><strong class="text-light"> <span class="bg-success p-1">${
-                                    res.unit.project_unit_status
+                                <p><strong class="text-light"> <span class="bg-${color} p-1">${
+                    res.unit.project_unit_status
+                }</span></strong></p>
+                                <p><strong class="text-light"> <span class="bg-warning p-1">${
+                                    res.unit.project_unit_category_type
                                 }</span></strong></p>
                                 <p><strong class="text-primary">${money.format(
                                     res.unit.project_unit_price

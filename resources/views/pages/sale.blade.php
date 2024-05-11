@@ -44,7 +44,7 @@
         <br>
         <span class="text-fs-4">Property result found <span class="property-count"></span></span>
 
-        <div id="display-project-sale-units" name='city' class="row">
+        <div id="display-project-sale-units" class="row">
 
         </div>
     </div>
@@ -52,12 +52,6 @@
 
 
     <script src="{{ asset('/js/user/sale.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            Display_Project_Sale_Units()
-            UnitsEvents()
 
-        });
-    </script>
 
 @endsection

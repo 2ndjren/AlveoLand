@@ -30,7 +30,7 @@ class send_inquery_response extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Response from Admin',
+            subject: 'Response from Admin Team',
         );
     }
 
@@ -40,7 +40,7 @@ class send_inquery_response extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.send_inquiry_mail',
+            markdown: 'mail.send_inquiry_mail',
         );
     }
 

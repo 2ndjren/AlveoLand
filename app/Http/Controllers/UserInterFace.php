@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Schedule_A_Visit;
 use App\Mail\subscriber_mail;
 use App\Models\about;
 use App\Models\amenities;
@@ -293,16 +294,44 @@ class UserInterFace extends Controller
         }
 
         $visit = new visitation();
+        $token = mt_rand(111111, 999999);
         $visit->full_name = $request->full_name;
         $visit->contact = $request->contact;
         $visit->email = $request->email;
         $visit->date = $request->date;
         $visit->time = $request->time;
+        $visit->token = $token;
         $visit->unit_id = $request->unit_id;
         $visit->status = 'Pending';
         $submit = $visit->save();
         if ($submit) {
-            return response()->json(['status' => 200, 'message' => 'Thank you for your submission. We will promptly process your visitation request and reach out to you at the earliest convenience. Your patience is appreciated. Thank you.']);
+            $property = project_units::where('id', $request->unit_id)->first();
+            $project = project_properties::where('id', $property->project_properties_id)->first();
+            if ($property) {
+                $mail = [
+                    'token' => $token,
+                    'property' => $project->project_name,
+                    'city' => $project->city,
+                    'code' => $property->project_unit_no,
+                    'for' => $property->project_unit_category_type,
+                    'type' => $property->project_unit_type,
+                    'price' => $property->project_unit_price,
+                    'fullname' => $request->full_name,
+                    'contact' => $request->contact,
+                    'email' => $request->email,
+                    'date' => $request->date,
+                    'time' => $request->time,
+                ];
+
+                $success = Mail::to($request->email)->send(new Schedule_A_Visit($mail));
+                if ($success) {
+                    return response()->json(['status' => 200, 'message' => 'Thank you for your submission. We will promptly process your visitation request and reach out to you at the earliest convenience. Your patience is appreciated. Thank you.']);
+                    // return response()->json(['status' => 400, 'message' => 'Please try again ']);
+                } else {
+
+                    return response()->json(['status' => 400, 'message' => 'Please hi again ']);
+                }
+            }
         } else {
             return response()->json(['status' => 400, 'message' => 'Please try again ']);
         }
@@ -361,12 +390,9 @@ class UserInterFace extends Controller
     }
     public function All_Project_Sale_Units_Data()
     {
-        $units = project_properties::join('project_units', 'project_properties.id', '=', 'project_units.project_properties_id')->where('project_units.project_unit_category_type', 'Sale')->select('project_properties.city', 'project_units.*')->get();
-        if ($units) {
-            return response()->json(['status' => 200, 'message' => 'Results found', 'units' => $units, 'units' => $units]);
-        } else {
-            return response()->json(['status' => 400, 'message' => 'Results found', 'units' => $units, 'units' => $units]);
-        }
+        $projects = project_properties::where(['status' => 'Publish'])->get();
+        $units = project_units::where('project_unit_category_type', 'Sale')->get();
+        return response()->json(['projects' => $projects, 'units' => $units]);
     }
     public function All_Project_Lease_Units_Data()
     {
@@ -406,28 +432,19 @@ class UserInterFace extends Controller
     }
     public function Search_Sale(Request $request)
     {
-        $fields = [
-            'project_units.project_unit_category_type' => 'Sale',
-            'project_units.project_unit_type' => $request->type,
-            'project_units.project_unit_category_description' => $request->category,
-            'project_properties.city' => $request->city // Assuming city is requested here
-        ];
-
-        $units = project_properties::join('project_units', 'project_properties.id', '=', 'project_units.project_properties_id')
-            ->select('project_properties.id as project_id', 'project_properties.project_name', 'project_properties.city', 'project_units.*');
-
-        foreach ($fields as $key => $val) {
-            if ($val === null) {
-                unset($fields[$key]);
-            }
+        if ($request->city != null && $request->category == null && $request->type == null) {
+            $project = project_properties::where('city', $request->city)->get();
+            $units = project_units::all();
+            return response()->json(['projects' => $project, 'units' => $units]);
+        } else if ($request->city == null && $request->category != null && $request->type == null) {
+            $project = project_properties::all();
+            $units = project_units::where('project_unit_category_description', $request->category)->get();
+            return response()->json(['projects' => $project, 'units' => $units]);
+        } else if ($request->city == null && $request->category == null && $request->type != null) {
+            $project = project_properties::all();
+            $units = project_units::where('project_unit_type', $request->category)->get();
+            return response()->json(['projects' => $project, 'units' => $units]);
         }
-
-        foreach ($fields as $key => $value) {
-            $units->where($key, $value);
-        }
-
-        $result = $units->get();
-        return response()->json($result);
     }
     public function Search_Lease(Request $request)
     {

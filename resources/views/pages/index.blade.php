@@ -9,14 +9,20 @@
             <div class="row ps-5 index-size">
                 <div class="col-lg-4 px-lg-3 col-sm-12">
                     <div class="d-sm-flex d-lg-block justify-content-center">
-                        <img src="https://www.alveoland.com.ph/static/alveo-land-home.svg" height="30" alt="">
+                        <img class="text-center" src="https://www.alveoland.com.ph/static/alveo-land-home.svg" height="30"
+                            alt="">
+                        <br>
+                        <br>
+                        <br>
                     </div>
-                    <div class="lh-1 d-none d-lg-block">
-                        <p style="font-size:4rem"><span style=" color:rgb(9, 161, 255)">Innovating </span><span>the way you
+                    <div class="lh-1 d-none d-lg-block ">
+                        <p style="font-size:60px" <span style=" color:rgb(25, 69, 107)">Innovating </span><span
+                                style="color:rgb(133, 134, 136)">the way you
                                 live</span></p>
                     </div>
                     <div class="lh-1 d-lg-none text-center">
-                        <p style="font-size:2rem"><span style=" color:rgb(9, 161, 255)">Innovating </span><span>the way you
+                        <p style="font-size:2rem;"><span style=" color:rgb(25, 69, 107)">Innovating
+                            </span><span style="color:rgb(133, 134, 136)">the way you
                                 live</span></p>
                     </div>
                     <div id="carouselExampleFade" class="carousel slide carousel-fade mb-3 d-lg-none">
@@ -44,28 +50,27 @@
                                             <br>
                                             <br>
                                             <br>
-                                            <br>
-                                            <br>
-                                            <br>
-                                            <br>
+
                                         </div>
                                         <br>
                                         <br>
                                         <br>
                                         <br>
-                                        <h1 class="d-lg-block d-none"><span class="bg-light rounded-end   px-5 py-2"><i
+                                        <br>
+                                        <p class="d-lg-block d-none fw-semibold"><span
+                                                class="bg-light rounded-end   px-5 py-2"><i
                                                     class="fa-solid fa-location-dot text-danger"></i>
-                                                {{ $project->city }}</span></h1>
+                                                {{ $project->city }}</span></p>
                                         <div
-                                            class="featured-property-name d-lg-block d-none  text-center text-light py-2 h5">
+                                            class="featured-property-name d-lg-block d-none  text-center text-light py-2 h6">
                                             {{ $project->project_name }}
                                         </div>
                                         <h5 class="d-block d-lg-none text-center "><span
-                                                class="bg-light rounded-2   px-5 py-2"><i
+                                                class="bg-light rounded-2   px-3 py-1"><i
                                                     class="fa-solid fa-location-dot text-danger"></i>
                                                 {{ $project->city }}</span></h5>
                                         <div
-                                            class="featured-property-name d-block d-lg-none  text-center text-light py-2 h5">
+                                            class="featured-property-name d-block d-lg-none  text-center text-light py-2 h6">
                                             {{ $project->project_name }}
                                         </div>
 
@@ -87,12 +92,12 @@
                     </div>
                     {{-- <form id="index_search_properties_available"> --}}
 
-                    <div class="d-lg-block d-none">
-                        <p>
+                    <div class="d-lg-block d-none lh-lg">
+                        <p class="fs-6 fw-ligher">
                             Alveo Land Corp. is the Philippines’ leading innovative developer of vibrant communities and
                             groundbreaking living solutions.
                         </p>
-                        <a class="btn  fs-6 btn btn-primary" href="/about">Learn more about us?</a> <br>
+                        <a class="btn btn btn-primary" href="/about">Learn more about us?</a> <br>
                         <br>
                         <a href="/send-property" class="btn btn-success">Submit Property</a>
 
@@ -151,13 +156,13 @@
                 </div>
             </div>
             <div class="d-sm-block d-lg-none px-sm-5 text-center">
-                <p class="text-secondary">
+                <p class="text-secondary lh-base">
                     Alveo Land Corp. is the Philippines’ leading innovative developer of vibrant communities and
                     groundbreaking living solutions.
                 </p>
-                <a class="btn  fs-6 btn btn-primary" href="/about">Learn more about us?</a> <br>
+                <a class="btn  fs-6 btn btn-primary p-1" href="/about">Learn more about us?</a> <br>
                 <br>
-                <a href="/send-property" class="btn btn-success">Submit Property</a>
+                <a href="/send-property" class="btn btn-success p-1">Submit Property</a>
             </div>
             <div class="d-lg-flex d-none justify-content-start">
                 <div class="">

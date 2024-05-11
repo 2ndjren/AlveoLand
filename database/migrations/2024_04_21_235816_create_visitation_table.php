@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('visitation', function (Blueprint $table) {
             $table->id();
+            $table->string('token');
             $table->string('full_name');
             $table->string('contact');
             $table->date('date');

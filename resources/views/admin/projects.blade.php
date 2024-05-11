@@ -1,9 +1,8 @@
 @extends('layout.admin.layout')
 @section('title', 'Admin | Projects')
 @section('property')
-    <div class=" clearfix">
-        <h3 class="text-primary float-start " id="project-header-text">PROJECTS</h3>
-        oiu
+    <h3 class="text-primary float-start " id="project-header-text">PROJECTS</h3>
+    <div class="clearfix">
         <div id="project-menu-list" class="dropdown float-end ">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -17,11 +16,11 @@
 
             </ul>
         </div>
-        <div class="table-property-container bg-light shadow-sm p-3 overflow-x-auto">
-
-        </div>
+    </div>
+    <div class="table-property-container bg-light shadow-sm p-3 overflow-x-auto">
 
     </div>
+
 
 
     @include('admin.modals.modals')

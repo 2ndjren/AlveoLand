@@ -461,13 +461,13 @@
 <div class="modal fade" id="view-request-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog ">
-        <div class="modal-content rounded-0">
+        <div class="modal-content">
 
             <div class="modal-header border-0">
-                <h4><span><i class="fa-solid fa-hand"></i></span> Visitation Request</h4>
+                <h4><span><i class="fa-solid fa-hand"></i></span> Viewing Request</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body ">
                 <div id="vistation-deatails" class="row">
 
                 </div>

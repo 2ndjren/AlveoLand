@@ -79,7 +79,9 @@ Route::post('/search-lease', [UserInterFace::class, 'Search_Lease']);
 
 Route::get('/admin/property/index', [Routing::class, 'Property_Main']);
 Route::get('/admin/property/gallery', [Routing::class, 'Gallery']);
-Route::get('/admin/clients', [Client_Controller::class, 'GetAllRequest']);
+Route::get('/admin/pending-clients', [Client_Controller::class, 'PendingClients']);
+Route::get('/admin/approved-clients', [Client_Controller::class, 'ApprovedClients']);
+Route::get('/admin/declined-clients', [Client_Controller::class, 'DeclinedClients']);
 Route::get('/admin/clients/{id}', [Client_Controller::class, 'GetPropertyDetails']);
 Route::get('/admin/view-image/{id}', [Client_Controller::class, 'View_Image_Submitted']);
 
@@ -186,17 +188,21 @@ Route::post('/newsletter/subscribe', [UserInterFace::class, 'Send_Subscription_M
 
 
 Route::post('/submit-client-property', [Client_Controller::class, 'Submit_Property']);
+Route::get('/approve-client-property/{id}', [Client_Controller::class, 'Approve_Property']);
+Route::get('/decline-client-property/{id}', [Client_Controller::class, 'Decline_Property']);
 
 Route::get('/all-project-properties', [UserInterFace::class, 'All_Project_Properties']);
 
 
 
 
-Route::get('/approved-appointments', [Visitation::class, 'Approve_Appointments']);
+Route::get('/accepted-appointments', [Visitation::class, 'Approve_Appointments']);
+Route::get('/accepted-appointments/{token}', [Visitation::class, 'Accept_Viewing']);
+Route::get('/declined-appointments/{token}', [Visitation::class, 'Declined_Viewing']);
 Route::get('/pending-appointments', [Visitation::class, 'Pending_Appointments']);
 Route::get('/completed-appointments', [Visitation::class, 'Completed_Appointments']);
 Route::get('/show-appoitnment-details/{id}', [Visitation::class, 'Show_Appointment_Data']);
-Route::get('/approve-appointment/{id}', [Visitation::class, 'Approve_Appointment']);
+Route::get('/accepted-appointment/{id}', [Visitation::class, 'Approve_Appointment']);
 Route::get('/decline-appointment/{id}', [Visitation::class, 'Decline_Appointment']);
 Route::get('/complete-appointment/{id}', [Visitation::class, 'Complete_Appointment']);
 
@@ -211,5 +217,7 @@ Route::get('/inquiry-count', [Dashboard::class, 'Inquiry_Count']);
 
 
 Route::get('/pending-inquiry', [Inquiry::class, 'Pending_Inquiry']);
+Route::get('/delete-inquiry-response/{id}', [Inquiry::class, 'Delete_Inquiry']);
+Route::get('/responded-inquiry', [Inquiry::class, 'Responded_Inquiry']);
 Route::get('/view-inquiry-details/{id}', [Inquiry::class, 'View_Inquiry']);
 Route::post('/send-response-message', [Inquiry::class, 'Send_Inquiry_Response']);

@@ -16,6 +16,7 @@ class visitation extends Model
         'date',
         'time',
         'unit_id',
+        'token',
         'status',
     ];
 }
